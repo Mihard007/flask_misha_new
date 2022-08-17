@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Online Shop</title>
+{% endblock %}
+
+{% block body %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal">Pricing</h1>
+    <p class="fs-5 text-muted">Test shop made on Flask</p>
+</div>
+
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+    {% for el in data %}
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">{{ el.title }}</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">{{ el.price }} <small class="text-muted">usd</small> </h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>All rates differ depending on the price!</li>
+        </ul>
+      <a href="/buy/{{ el.id }}" class="btn btn-lg btn-block bnt-outline-primary">Buy</a><br>
+        <a href="/edit/{{ el.id }}" class="btn btn-success">Edit</a>
+        <a href="/delete/{{ el.id }}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+{% endblock %}
